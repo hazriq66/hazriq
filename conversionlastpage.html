@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Conversion calculator</title>
+<link rel="stylesheet" href="assignment.css">
+</head>
+
+<body style="background-color:#DDD0C8;">
+<h1 align="right"> Conversion calculator ...</h1>
+<div align="right">
+<nav>
+<a href="conversioncalculator.html" >Homepage </a> &nbsp; &bull; &nbsp;
+<a href="conversionpage.html" >Conversion description</a> &nbsp; &bull; &nbsp;
+<a href="conversionlastpage.html" > Conversion calculator</a> 
+</nav>
+</div>
+<hr>
+
+<br>
+<br>
+<br>
+<br>
+	
+<div class="center">
+	<label for="temperature">Enter Temperature:</label>
+    <input class="box" type="number" id="temperature" placeholder="Enter temperature" required>
+    <br>
+	<br>
+    <label for="conversionType">Conversion Type:</label>
+    <select class="box" id="conversionType">
+        <option value="celsiusToFahrenheit">Celsius to Fahrenheit</option>
+        <option value="fahrenheitToCelsius">Fahrenheit to Celsius</option>
+    </select>
+	
+	<br>
+    <br>
+	<br>
+	
+    <button onclick="convertTemperature()">Convert</button> &nbsp;&nbsp;  
+	<button onclick="resetForm()">Reset</button>
+
+	 <br>
+	 <br>
+	
+	 <label for="result">Result:&nbsp;</label>
+    <textarea id="result" readonly></textarea>
+</div>
+	
+<script>
+        function convertTemperature() 
+		{
+            var temperature = parseFloat(document.getElementById("temperature").value);
+            var conversionType = document.getElementById("conversionType").value;
+            var result;
+
+            if (conversionType === "celsiusToFahrenheit") {
+                result = (temperature * 9/5) + 32;
+                document.getElementById("result").innerHTML = temperature + "°C is equal to " + result + "°F";
+            } else if (conversionType === "fahrenheitToCelsius") {
+                result = (temperature - 32) * 5/9;
+                document.getElementById("result").innerHTML = temperature + "°F is equal to " + result + "°C";
+            }
+        }
+		
+		 function resetForm() {
+            document.getElementById("temperature").value = "";
+            document.getElementById("conversionType").value = "celsiusToFahrenheit"; // You can set the default conversion type
+            document.getElementById("result").innerHTML = "";
+        }
+</script>
+
+
+	
+</body>
+</html>
